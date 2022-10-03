@@ -1,19 +1,22 @@
 const { Schema, model } = require("mongoose");
 
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
-const userSchema = new Schema(
+const tournamentSchema = new Schema(
   {
-    username: {
+    tournamentName: {
       type: String,
       // unique: true -> Ideally, should be unique, but its up to you
     },
-    email:{
+    date:{
+      type: Date,
+    },
+    description:{
       type: String,
     },
-    completeName:{
-      type: String,
+    prize:{
+      type: Number,
     },
-    password: String,
+    game: [{type:Schema.Types.ObjectId,ref:"Game"}],
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
@@ -21,6 +24,6 @@ const userSchema = new Schema(
   }
 );
 
-const User = model("User", userSchema);
 
-module.exports = User;
+
+module.exports = model("Tournament", tournamentSchema);
