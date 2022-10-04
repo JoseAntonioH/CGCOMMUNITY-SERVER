@@ -8,7 +8,7 @@ const tournamentSchema = new Schema(
       // unique: true -> Ideally, should be unique, but its up to you
     },
     date:{
-      type: Date,
+      type: String,
     },
     description:{
       type: String,

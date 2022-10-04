@@ -4,36 +4,36 @@ const { Schema, model } = require("mongoose");
 const gameSchema = new Schema(
   {
     gameName: {
-      type: String,
+        type: String,
       // unique: true -> Ideally, should be unique, but its up to you
     },
     image:{
         type: String,
       },
     genre:{
-      type: String,
+        type: String,
     },
     platforms:{
-      type: String,
+        type: String,
     },
     twitter:{
         type: String,
-      },
-      instagram:{
+    },
+    instagram:{
         type: String,
-      },
-      youtube:{
+    },
+    youtube:{
         type: String,
-      },
-      facebook:{
+    },
+    facebook:{
         type: String,
-      },
-      icon:{
+    },
+    icon:{
         type: String,
-      },
-      developer:{
+    },
+    developer:{
         type: String,
-      },
+    },
     tournament: [{type:Schema.Types.ObjectId,ref:"Tournament"}],
     social: [{type:Schema.Types.ObjectId,ref:"Social"}],
   },
