@@ -13,6 +13,8 @@ const userSchema = new Schema(
     completeName:{
       type: String,
     },
+    social:[{type:Schema.Types.ObjectId,ref:"Social"}],
+    
     password: String,
   },
   {

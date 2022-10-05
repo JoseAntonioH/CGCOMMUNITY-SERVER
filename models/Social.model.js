@@ -3,9 +3,12 @@ const { Schema, model } = require("mongoose");
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
 const socialSchema = new Schema(
   {
-    userName: [{type:Schema.Types.ObjectId,ref:"User"}],
+    user: [{type:Schema.Types.ObjectId,ref:"User"}],
     date:{
       type: Date,
+    },
+    title:{
+        type: String,
     },
     description:{
       type: String,
