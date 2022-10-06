@@ -39,7 +39,7 @@ router.get("/session", (req, res) => {
 //http://localhost:5005/api/auth/signup
 
 router.post("/signup", isLoggedOut, (req, res) => {
-  const { username, password,email,completeName } = req.body;
+  const { username, password,email,completeName,age,instagram,youtube,facebook,twitter,profilePic} = req.body;
 
   if (!username) {
     return res
@@ -82,7 +82,13 @@ router.post("/signup", isLoggedOut, (req, res) => {
           username,
           password: hashedPassword,
           email,
+          age,
           completeName,
+          profilePic,
+          twitter,
+          instagram,
+          facebook,
+          youtube,
         });
       })
       .then((user) => {
@@ -91,7 +97,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
           createdAt: Date.now(),
         }).then((session) => {
 
-          
+
           res.status(201).json({ user, accessToken: session._id });
         });
       })

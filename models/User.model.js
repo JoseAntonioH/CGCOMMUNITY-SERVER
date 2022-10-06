@@ -5,13 +5,31 @@ const userSchema = new Schema(
   {
     username: {
       type: String,
-      // unique: true -> Ideally, should be unique, but its up to you
+      unique: true 
     },
     email:{
       type: String,
     },
     completeName:{
       type: String,
+    },
+    profilePic:{
+      type: String,
+    },
+    youtube:{
+      type: String,
+    },
+    instagram:{
+      type: String,
+    },
+    twitter:{
+      type: String,
+    },
+    facebook:{
+      type: String,
+    },
+    age:{
+      type: Number,
     },
     social:[{type:Schema.Types.ObjectId,ref:"Social"}],
     

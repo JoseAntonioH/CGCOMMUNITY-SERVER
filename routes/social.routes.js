@@ -13,9 +13,9 @@ router.get("/social", (req,res,next)=>{
 })
 
 router.post("/social",(req,res,next)=>{
-    const{userId,title,date,description,gameId}=req.body;
+    const{user,title,date,description,gameId}=req.body;
 
-    Tournament.create({user:userId,title,date,description,game:gameId})
+    Social.create({user,title,date,description,game:gameId})
     .then((newSocial)=>{
         return Game.findByIdAndUpdate(gameId,{
             $push:{social:newSocial._id}

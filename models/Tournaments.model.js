@@ -16,7 +16,30 @@ const tournamentSchema = new Schema(
     prize:{
       type: Number,
     },
+    champion: {
+      type: String,
+      // unique: true -> Ideally, should be unique, but its up to you
+    },
+    finalistone:{
+      type: String,
+    },
+    finalisttwo:{
+      type: String,
+    },
+    semifinalistone:{
+      type: String,
+    },
+    semifinalisttwo:{
+        type: String,
+    },
+    semifinalistthree:{
+        type: String,
+    },
+    semifinalistfour:{
+        type: String,
+    },
     game: [{type:Schema.Types.ObjectId,ref:"Game"}],
+    
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

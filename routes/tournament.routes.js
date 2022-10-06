@@ -13,9 +13,9 @@ router.get("/tournaments", (req,res,next)=>{
 })
 
 router.post("/tournaments",(req,res,next)=>{
-    const{tournamentName,date,description,prize,gameId}=req.body;
+    const{tournamentName,date,description,prize,champion,finalistone,finalisttwo,semifinalistone,semifinalisttwo,semifinalistthree,semifinalistfour,gameId}=req.body;
 
-    Tournament.create({tournamentName,date,description,prize,game:gameId})
+    Tournament.create({tournamentName,date,description,prize,champion,finalistone,finalisttwo,semifinalistone,semifinalisttwo,semifinalistthree,semifinalistfour,game:gameId})
     .then((newTournament)=>{
         return Game.findByIdAndUpdate(gameId,{
             $push:{tournament:newTournament._id}
@@ -40,7 +40,19 @@ router.get("/tournaments/:id",async(req,res)=>{
 })
 
 
-
+router.put("/torunament/:id", async(req,res)=>{
+    try{
+        const{id}=req.params;
+        if(!mongoose.Types.ObjectId.isValid(id)){
+            res.status(400).json({message:"Specified Id is not valid"})
+            return;
+        }
+        const tournamentUpdated=await Tournament.findByIdAndUpdate(id,req.body,{new:true})
+        res.json(tournamentUpdated)
+    }catch (error){
+        console.log(error)
+    }
+});
 
 
 router.delete("/tournaments/:id",async(req,res)=>{
