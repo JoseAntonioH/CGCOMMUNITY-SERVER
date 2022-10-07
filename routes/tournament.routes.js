@@ -40,7 +40,7 @@ router.get("/tournaments/:id",async(req,res)=>{
 })
 
 
-router.put("/torunament/:id", async(req,res)=>{
+router.put("/tournaments/:id", async(req,res)=>{
     try{
         const{id}=req.params;
         if(!mongoose.Types.ObjectId.isValid(id)){
